@@ -20,31 +20,31 @@
     </div>
     <div class="two">
         <input id="answer" type="number" required />
-        <span id="error1" class="alertmsg">please enter a valid number!</span>
+        <span id="errorAnswer" class="alertMessage">please enter a valid number!</span>
     </div>
 
     <div class="three">
-        <button id="submit" onclick="popUp()">submit!</button>
+        <button id="submit">submit!</button>
     </div>
 </div>
 
-<div id="myModal" class="modal">
+<div id="modalForm" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <p>About you:</p>
+        <p>fill in your details:</p>
         <div>
-            <label for="fullname">full name:</label>
-            <input id="fullname" type="text" required/>
+            <label for="fullName">full name:</label>
+            <input id="fullName" type="text" required/>
         </div>
         <div>
-            <label id="errorFullName" class="alertmsg">Please enter a full name!</label>
+            <label id="errorFullName" class="alertMessage">Please enter a full name!</label>
         </div>
         <br>
         <div>
             <label for="male">gender:</label>
-            <input id="male" name="gender"type="radio" checked/>
+            <input id="male" name="gender" type="radio" checked/>
             <label>male</label>
-            <input id="female" name="gender"type="radio" />
+            <input id="female" name="gender" type="radio" />
             <label>female</label>
         </div>
         <br>
@@ -58,7 +58,7 @@
             <input id="phone" type="tel" required/>
         </div>
         <div>
-            <label id="errorPhone" class="alertmsg">Please enter a valid phone number!</label>
+            <label id="errorPhone" class="alertMessage">Please enter a valid phone number!</label>
         </div>
         <br>
         <div>
@@ -66,7 +66,7 @@
             <input id="email" type="email" required/>
         </div>
         <div>
-            <label id="errorEmail" class="alertmsg">Please enter a valid e-mail!</label>
+            <label id="errorEmail" class="alertMessage">Please enter a valid e-mail!</label>
         </div>
         <br>
         <div>

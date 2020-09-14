@@ -1,42 +1,45 @@
 
 //modal form
 
-const modal = document.getElementById("myModal");
+const modal = document.getElementById("modalForm");
 const btn = document.getElementById("submit");
 const span = document.getElementsByClassName("close")[0];
 const send = document.getElementById("send");
+const displayBlock = "block";
+const displayNone = "none";
+const alertMessageInvalid = "alertMessageInvalid";
+const alertMessage = "alertMessage";
 
 //display when clicked
 btn.onclick = function() {
-    modal.style.display = "block";
+    modal.style.display = displayBlock;
 }
 
 //hide when clicked on close
 span.onclick = function() {
-    modal.style.display = "none";
+    modal.style.display = displayNone;
 }
 
 //hide when clicked anywhere else
 window.onclick = function(event) {
     if (event.target === modal) {
-        modal.style.display = "none";
+        modal.style.display = displayNone;
     }
 }
 
 //send the data when clicked on send
 send.onclick = function () {
     alert("Your answer has been submitted!");
-    modal.style.display = "none";
+    modal.style.display = displayNone;
 
 }
 
 //checking if answer input is valid
 
 function checkIfValidAnswer () {
-    let item = document.getElementById("answer").value;
-    let value = parseInt(item);
-    let message = document.getElementById("error1");
-    message.className = isNaN(value) ? "alertmsgInvalid" : "alertmsg";
+    let value = parseInt(document.getElementById("answer").value);
+    let message = document.getElementById("errorAnswer");
+    message.className = isNaN(value) ? alertMessageInvalid : alertMessage;
 }
 
 document.getElementById("answer").addEventListener("keyup",checkIfValidAnswer);
@@ -44,21 +47,21 @@ document.getElementById("answer").addEventListener("keyup",checkIfValidAnswer);
 //checking if full name input is valid
 
 function checkIfValidFullName () {
-    let item = document.getElementById("fullname").value;
+    let value = document.getElementById("fullName").value;
     let re = /^[A-Za-z]+\s([A-Za-z]+\s*)+$/;
     let message = document.getElementById("errorFullName");
-    message.className = re.test(item) ? "alertmsg" : "alertmsgInvalid";
+    message.className = re.test(value) ? alertMessage : alertMessageInvalid;
 }
 
-document.getElementById("fullname").addEventListener("keyup",checkIfValidFullName);
+document.getElementById("fullName").addEventListener("keyup",checkIfValidFullName);
 
 //checking if phone input is valid
 
 function checkIfValidPhone () {
-    let item = document.getElementById("phone").value;
+    let value = document.getElementById("phone").value;
     let re = /^[0-9]+$/;
     let message = document.getElementById("errorPhone");
-    message.className = re.test(item) ? "alertmsg" : "alertmsgInvalid";
+    message.className = re.test(value) ? alertMessage : alertMessageInvalid;
 }
 
 document.getElementById("phone").addEventListener("keyup",checkIfValidPhone);
@@ -66,10 +69,10 @@ document.getElementById("phone").addEventListener("keyup",checkIfValidPhone);
 //checking if email input is valid
 
 function checkIfValidEmail () {
-    let item = document.getElementById("email").value;
+    let value = document.getElementById("email").value;
     let re = /^[A-Za-z._0-9!#$%&'*+-/=?^`{|}~]+@([A-Za-z]+\.[a-z]+)+$/;
     let message = document.getElementById("errorEmail");
-    message.className = re.test(item) ? "alertmsg" : "alertmsgInvalid";
+    message.className = re.test(value) ? alertMessage : alertMessageInvalid;
 }
 
 document.getElementById("email").addEventListener("keyup",checkIfValidEmail);

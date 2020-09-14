@@ -68,6 +68,7 @@ body {
 
 .modal {
     display: none;
+    font-family: Helvetica, Arial, sans-serif;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -80,7 +81,6 @@ body {
 }
 
 .modal-content {
-
     background-color: rgb(254, 254, 254, 0.8);
     margin: 15% auto;
     padding: 20px;
@@ -117,7 +117,7 @@ body {
     cursor: pointer;
 }
 
-.alertmsg {
+.alertMessage {
     display: block;
     height: 0;
     opacity: 0;
@@ -125,7 +125,7 @@ body {
     transition: ease 400ms;
     font-size: 0.8em;
 }
-.alertmsgInvalid {
+.alertMessageInvalid {
     color: red;
     opacity: 1;
     height: 2px;
