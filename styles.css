@@ -128,7 +128,7 @@ body {
 .alertmsgInvalid {
     color: red;
     opacity: 1;
-    height: auto;
+    height: 2px;
     max-height: none;
     margin-top: 0.3em;
 }

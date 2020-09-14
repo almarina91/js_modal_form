@@ -19,7 +19,7 @@
         </p>
     </div>
     <div class="two">
-        <input id="answer" type="number" required/>
+        <input id="answer" type="number" required />
         <span id="error1" class="alertmsg">please enter a valid number!</span>
     </div>
 
@@ -36,10 +36,13 @@
             <label for="fullname">full name:</label>
             <input id="fullname" type="text" required/>
         </div>
+        <div>
+            <label id="errorFullName" class="alertmsg">Please enter a full name!</label>
+        </div>
         <br>
         <div>
             <label for="male">gender:</label>
-            <input id="male" name="gender"type="radio" />
+            <input id="male" name="gender"type="radio" checked/>
             <label>male</label>
             <input id="female" name="gender"type="radio" />
             <label>female</label>
@@ -54,10 +57,16 @@
             <label for="phone">phone:</label>
             <input id="phone" type="tel" required/>
         </div>
+        <div>
+            <label id="errorPhone" class="alertmsg">Please enter a valid phone number!</label>
+        </div>
         <br>
         <div>
             <label for="email">e-mail:</label>
             <input id="email" type="email" required/>
+        </div>
+        <div>
+            <label id="errorEmail" class="alertmsg">Please enter a valid e-mail!</label>
         </div>
         <br>
         <div>
