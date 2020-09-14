@@ -34,7 +34,7 @@ send.onclick = function () {
     if (send.disabled===false) {
         alert("Your answer has been submitted!");
         modal.style.display = displayNone;
-        answer.value = null;
+        document.getElementById("answer").value = null;
         document.getElementById("fullName").value = null;
         document.getElementById("email").value = null;
         document.getElementById("phone").value=null;
@@ -46,6 +46,7 @@ send.onclick = function () {
 function checkIfValidAnswer () {
     let value = parseInt(document.getElementById("answer").value);
     let message = document.getElementById("errorAnswer");
+
      if (isNaN(value)) {
          message.className = alertMessageInvalid;
          answerValid = false;
@@ -66,6 +67,7 @@ function checkIfValidFullName () {
     let value = document.getElementById("fullName").value;
     let re = /^[A-Za-z]+\s([A-Za-z]+\s*)+$/;
     let message = document.getElementById("errorFullName");
+
     if (re.test(value)) {
         message.className = alertMessage;
         fullNameValid = true;
@@ -73,6 +75,7 @@ function checkIfValidFullName () {
         message.className = alertMessageInvalid;
         fullNameValid = false;
     }
+
     enableSend();
 }
 
@@ -83,6 +86,7 @@ function checkIfValidPhone () {
     let value = document.getElementById("phone").value;
     let re = /^[0-9]+$/;
     let message = document.getElementById("errorPhone");
+
     if (re.test(value)) {
         message.className = alertMessage;
         phoneValid = true;
@@ -90,6 +94,7 @@ function checkIfValidPhone () {
         message.className = alertMessageInvalid;
         phoneValid = false;
     }
+
     enableSend();
 }
 
@@ -100,6 +105,7 @@ function checkIfValidEmail () {
     let value = document.getElementById("email").value;
     let re = /^[A-Za-z._0-9!#$%&'*+-/=?^`{|}~]+@([A-Za-z]+\.[a-z]+)+$/;
     let message = document.getElementById("errorEmail");
+
     if (re.test(value)) {
         message.className = alertMessage;
         emailValid = true;
@@ -107,6 +113,7 @@ function checkIfValidEmail () {
         message.className = alertMessageInvalid;
         emailValid = false;
     }
+
     enableSend();
 }
 
@@ -117,9 +124,9 @@ function enableSubmit () {
 }
 
 function enableSend () {
-    if (fullNameValid===true && emailValid===true && phoneValid===true) {
-        send.disabled= false;
-        send.style.backgroundColor="#e38546";
+    if (fullNameValid === true && emailValid === true && phoneValid === true) {
+        send.disabled = false;
+        send.style.backgroundColor = "#e38546";
     } else {
         send.disabled = true;
     }
