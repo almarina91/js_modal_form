@@ -1,6 +1,4 @@
-
 //modal form
-
 const modal = document.getElementById("modalForm");
 const btn = document.getElementById("submit");
 const span = document.getElementsByClassName("close")[0];
@@ -9,6 +7,10 @@ const displayBlock = "block";
 const displayNone = "none";
 const alertMessageInvalid = "alertMessageInvalid";
 const alertMessage = "alertMessage";
+let answerValid = false;
+let fullNameValid = false;
+let phoneValid = false;
+let emailValid = false;
 
 //display when clicked
 btn.onclick = function() {
@@ -29,53 +31,97 @@ window.onclick = function(event) {
 
 //send the data when clicked on send
 send.onclick = function () {
-    alert("Your answer has been submitted!");
-    modal.style.display = displayNone;
+    if (send.disabled===false) {
+        alert("Your answer has been submitted!");
+        modal.style.display = displayNone;
+        answer.value = null;
+        document.getElementById("fullName").value = null;
+        document.getElementById("email").value = null;
+        document.getElementById("phone").value=null;
+    }
 
 }
 
 //checking if answer input is valid
-
 function checkIfValidAnswer () {
     let value = parseInt(document.getElementById("answer").value);
     let message = document.getElementById("errorAnswer");
-    message.className = isNaN(value) ? alertMessageInvalid : alertMessage;
+     if (isNaN(value)) {
+         message.className = alertMessageInvalid;
+         answerValid = false;
+         btn.style.backgroundColor="#bab9b8";
+     } else {
+         message.className = alertMessage;
+         answerValid = true;
+         btn.style.backgroundColor="#e38546";
+     }
+
+     enableSubmit();
 }
 
 document.getElementById("answer").addEventListener("keyup",checkIfValidAnswer);
 
 //checking if full name input is valid
-
 function checkIfValidFullName () {
     let value = document.getElementById("fullName").value;
     let re = /^[A-Za-z]+\s([A-Za-z]+\s*)+$/;
     let message = document.getElementById("errorFullName");
-    message.className = re.test(value) ? alertMessage : alertMessageInvalid;
+    if (re.test(value)) {
+        message.className = alertMessage;
+        fullNameValid = true;
+    } else {
+        message.className = alertMessageInvalid;
+        fullNameValid = false;
+    }
+    enableSend();
 }
 
 document.getElementById("fullName").addEventListener("keyup",checkIfValidFullName);
 
 //checking if phone input is valid
-
 function checkIfValidPhone () {
     let value = document.getElementById("phone").value;
     let re = /^[0-9]+$/;
     let message = document.getElementById("errorPhone");
-    message.className = re.test(value) ? alertMessage : alertMessageInvalid;
+    if (re.test(value)) {
+        message.className = alertMessage;
+        phoneValid = true;
+    } else {
+        message.className = alertMessageInvalid;
+        phoneValid = false;
+    }
+    enableSend();
 }
 
 document.getElementById("phone").addEventListener("keyup",checkIfValidPhone);
 
 //checking if email input is valid
-
 function checkIfValidEmail () {
     let value = document.getElementById("email").value;
     let re = /^[A-Za-z._0-9!#$%&'*+-/=?^`{|}~]+@([A-Za-z]+\.[a-z]+)+$/;
     let message = document.getElementById("errorEmail");
-    message.className = re.test(value) ? alertMessage : alertMessageInvalid;
+    if (re.test(value)) {
+        message.className = alertMessage;
+        emailValid = true;
+    } else {
+        message.className = alertMessageInvalid;
+        emailValid = false;
+    }
+    enableSend();
 }
 
 document.getElementById("email").addEventListener("keyup",checkIfValidEmail);
 
+function enableSubmit () {
+    btn.disabled= !answerValid;
+}
 
+function enableSend () {
+    if (fullNameValid===true && emailValid===true && phoneValid===true) {
+        send.disabled= false;
+        send.style.backgroundColor="#e38546";
+    } else {
+        send.disabled = true;
+    }
+}
 

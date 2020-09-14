@@ -16,7 +16,7 @@ body {
 
 .one {
     color: #ffffff;
-    font-family: Helvetica, Arial;
+    font-family: Helvetica, Arial, sans-serif;
     line-height: 35px;
     font-size: 25px;
     text-align: center;
@@ -44,10 +44,11 @@ body {
 #answer {
     border-radius: 5px;
     color: dodgerblue;
+
 }
 
 #submit {
-    background-color: #e38546;
+    background-color: #bab9b8;
     border: none;
     color: white;
     padding: 20px;
@@ -59,12 +60,7 @@ body {
     border-radius: 50%;
 }
 
-#submit:hover,
-#submit:focus {
-    background-color: #d46d36;
-    text-decoration: none;
-    cursor: pointer;
-}
+
 
 .modal {
     display: none;
@@ -103,18 +99,12 @@ body {
 }
 #send {
     float: right;
-    background-color: #e38546;
+    background-color: #c1c1c1;
     border: none;
     color: white;
     padding: 10px;
     border-radius: 10px;
 
-}
-#send:hover,
-#send:focus {
-    background-color: #d46d36;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .alertMessage {
@@ -128,7 +118,8 @@ body {
 .alertMessageInvalid {
     color: red;
     opacity: 1;
-    height: 2px;
+    font-size: 15px;
+    transition: ease 400ms;
     max-height: none;
-    margin-top: 0.3em;
+
 }
